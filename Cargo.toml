@@ -1,0 +1,38 @@
+[package]
+name = "lightblue_automsg"
+description = "PoC protocol collector/builder for lightyear-based projects"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[workspace]
+resolver = "2"
+members = [ ".", "lightblue_macro" ]
+default-members = ["."]
+
+[features]
+default = []
+
+[build-dependencies]
+anyhow = "1.0"
+syn = { version = "2.0", features = ["full", "parsing", "printing"]}
+quote = "1.0"
+proc-macro2 = "1.0"
+Inflector = "0.11"
+path-slash = "0.2"
+walkdir = "2.4"
+cargo-emit = "0.2"
+indexmap = "2.1"
+
+[dependencies]
+lightblue_macro = { path = "lightblue_macro" }
+anyhow = "1.0"
+bevy = "0.13"
+clap = "4.5.1"
+lightyear = { version = "0.11", features = [
+    "webtransport",
+    "websocket",
+    "render",
+] }
+serde = "1.0.196"
+derive_more = { version = "0.99", features = ["add", "mul"] }
